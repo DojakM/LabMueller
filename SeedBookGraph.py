@@ -283,6 +283,8 @@ def generateInterface(graphdf):
 ### MAIN FUNCTION
 # this is what happens when the program runs
 if __name__ == '__main__':
-    excelDF = loadingFiles("test.xlsx") #SeedBook enter here the path
-    graphdf = sortParents(excelDF)
-    generateInterface(graphdf)
+    noneCheck = st.file_uploader("Upload the data:", type=([".xlsx"]))
+    if noneCheck is not None:
+        excelDF = loadingFiles(noneCheck) #SeedBook enter here the path
+        graphdf = sortParents(excelDF)
+        generateInterface(graphdf)
